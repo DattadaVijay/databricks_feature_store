@@ -32,6 +32,9 @@ jobs:
             - name: deploy bundle
               run: databricks bundle deploy
 
+            - name: run job
+              run: databricks bundle run iris-feature-store
+
 
 
 
