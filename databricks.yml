@@ -11,8 +11,10 @@ include:
 variables:
   catalog:
     description: The catalog to use
+    default: main
   schema:
     description: The schema to use
+    default: default
 
 targets:
   dev:
