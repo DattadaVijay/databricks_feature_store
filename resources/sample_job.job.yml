@@ -11,12 +11,12 @@ resources:
 
       environments:
         - environment_key: feature_env
-          environment_version: "4"
-          dependencies:
-            - databricks-feature-engineering
-            - mlflow
-            - scikit-learn
-
+          spec:
+            environment_version: "4"
+            dependencies:
+              - databricks-feature-engineering
+              - scikit-learn
+              - mlflow
 
       tasks:
         - task_key: build_features
