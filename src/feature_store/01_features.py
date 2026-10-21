@@ -25,6 +25,8 @@ pdf.insert(0, "iris_id", range(1, len(pdf) + 1))
 
 df = spark.createDataFrame(pdf)
 
+df.display()
+
 # COMMAND ----------
 
 features_df = df.drop("species")
