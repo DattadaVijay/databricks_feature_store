@@ -33,7 +33,7 @@ jobs:
               run: databricks bundle deploy
 
             - name: run job
-              run: databricks bundle run iris-feature-store
+              run: databricks bundle run iris_pipeline
 
 
 
