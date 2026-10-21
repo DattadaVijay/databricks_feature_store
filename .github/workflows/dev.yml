@@ -1,0 +1,38 @@
+name: feature_store_pipeline
+
+on:
+    push:
+        branches:
+            - main
+    workflow_dispatch:
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        env:
+            DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+            DATABRICKS_CLIENT_ID: ${{ secrets.DATABRICKS_CLIENT_ID }}
+            DATABRICKS_CLIENT_SECRET: ${{ secrets.DATABRICKS_CLIENT_SECRET }}
+            DATABRICKS_AUTH_TYPE: oauth-m2m
+        steps:
+            - name: checkout repo
+              uses: actions/checkout@v4
+
+            - name: setup databricks cli
+              uses: databricks/setup-cli@main
+
+            - name: install python
+              uses: actions/setup-python@v5
+              with:
+                python-version: '3.12'
+
+            - name: bundle validate
+              run: databricks bundle validate
+
+            - name: deploy bundle
+              run: databricks bundle deploy
+
+
+
+
+

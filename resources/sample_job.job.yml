@@ -1,0 +1,15 @@
+resources:
+  jobs:
+    iris_pipeline:
+      name: iris-feature-store
+
+      parameters:
+        - name: catalog
+          default: ${var.catalog}
+        - name: schema
+          default: ${var.schema}
+
+      tasks:
+        - task_key: build_features
+          notebook_task:
+            notebook_path: ../src/feature_store/01_features.py
